@@ -70,19 +70,6 @@ export const About = () => {
                                 </div>
                             </div>
                         </motion.div>
-
-                        {/* Status Floating Box */}
-                        <motion.div 
-                            initial={{ x: 20, opacity: 0 }}
-                            whileInView={{ x: 0, opacity: 1 }}
-                            className="absolute -bottom-6 left-1/2 -translate-x-1/2 lg:left-auto lg:right-0 glass px-8 py-5 rounded-2xl border-white/10 flex items-center gap-4 shadow-2xl bg-black/50"
-                        >
-                            <div className="w-2.5 h-2.5 rounded-full bg-emerald-500 shadow-[0_0_10px_rgba(16,185,129,0.5)]" />
-                            <div className="flex flex-col">
-                                <span className="text-[10px] font-bold text-neutral-500 uppercase tracking-widest">Availability</span>
-                                <span className="text-sm font-black text-white whitespace-nowrap">Open to Hybrid Roles</span>
-                            </div>
-                        </motion.div>
                     </div>
 
                     {/* Content Section - 7 Columns */}

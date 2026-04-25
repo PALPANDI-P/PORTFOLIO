@@ -12,11 +12,10 @@ export const fadeIn = (direction: "up" | "down" | "left" | "right" | "none" = "n
             x: 0,
             opacity: 1,
             transition: {
-                type: "spring",
-                duration: 1.2,
+                type: "tween",
+                duration: 0.8,
                 delay: delay,
-                stiffness: 100,
-                damping: 20,
+                ease: [0.25, 0.25, 0.25, 0.75],
             },
         },
     };

@@ -65,6 +65,8 @@ export const Projects = () => {
                                     src={project.image}
                                     alt={project.title}
                                     fill
+                                    priority={idx === 0}
+                                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                                     className="object-cover transition-transform duration-1000 group-hover:scale-110 opacity-60 group-hover:opacity-100"
                                 />
                                 {/* Overlay on Hover */}

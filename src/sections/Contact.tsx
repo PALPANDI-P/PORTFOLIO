@@ -66,9 +66,17 @@ export const Contact = () => {
                                     <div className="p-4 rounded-2xl bg-white/5 text-neutral-500 group-hover:bg-white group-hover:text-black transition-all">
                                         <channel.icon size={28} />
                                     </div>
-                                    <div>
+                                    <div className="flex-grow">
                                         <h4 className="text-[10px] font-black text-neutral-500 uppercase tracking-widest mb-1">{channel.label}</h4>
-                                        <p className="text-white font-bold text-lg">{channel.value}</p>
+                                        <div className="flex items-center gap-3">
+                                            <p className="text-white font-bold text-lg">{channel.value}</p>
+                                            {channel.label === "Location" && (
+                                                <div className="flex items-center gap-1.5 px-2 py-0.5 rounded-md bg-emerald-500/10 border border-emerald-500/20">
+                                                    <div className="w-1 h-1 rounded-full bg-emerald-500 animate-pulse" />
+                                                    <span className="text-[7px] font-black text-emerald-500 uppercase tracking-widest whitespace-nowrap">Hybrid</span>
+                                                </div>
+                                            )}
+                                        </div>
                                     </div>
                                 </a>
                             ))}

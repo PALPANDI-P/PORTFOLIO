@@ -60,15 +60,30 @@ export const Hero = () => {
                         style={{ y: y1, opacity, scale }}
                         className="flex flex-col items-center text-center"
                     >
-                        <motion.div 
-                            initial={{ y: 20, opacity: 0 }}
-                            animate={{ y: 0, opacity: 1 }}
-                            transition={{ delay: 0.5 }}
-                            className="flex items-center gap-3 px-6 py-2 bg-white/5 border border-white/10 rounded-full mb-12"
-                        >
-                            <div className="w-1.5 h-1.5 rounded-full bg-white animate-pulse" />
-                            <span className="text-[10px] font-black uppercase tracking-[0.4em] text-neutral-400">{slides[current].tag}</span>
-                        </motion.div>
+                        <div className="flex flex-wrap items-center justify-center gap-4 mb-12">
+                            <motion.div 
+                                initial={{ y: 20, opacity: 0 }}
+                                animate={{ y: 0, opacity: 1 }}
+                                transition={{ delay: 0.5 }}
+                                className="flex items-center gap-3 px-6 py-2 bg-white/5 border border-white/10 rounded-full"
+                            >
+                                <div className="w-1.5 h-1.5 rounded-full bg-white animate-pulse" />
+                                <span className="text-[10px] font-black uppercase tracking-[0.4em] text-neutral-400">{slides[current].tag}</span>
+                            </motion.div>
+
+                            <motion.div 
+                                initial={{ y: 20, opacity: 0 }}
+                                animate={{ y: 0, opacity: 1 }}
+                                transition={{ delay: 0.6 }}
+                                className="flex items-center gap-3 px-4 py-2 bg-emerald-500/10 border border-emerald-500/20 rounded-full backdrop-blur-md"
+                            >
+                                <div className="relative flex h-2 w-2">
+                                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                                    <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+                                </div>
+                                <span className="text-[9px] font-black uppercase tracking-[0.2em] text-emerald-500 whitespace-nowrap">Open to Hybrid Roles</span>
+                            </motion.div>
+                        </div>
 
                         <h1 className="flex flex-col gap-2 mb-10">
                             <span className="text-3xl md:text-5xl lg:text-6xl font-black tracking-tighter text-white leading-tight italic">

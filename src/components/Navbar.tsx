@@ -47,10 +47,14 @@ export const Navbar = () => {
                 )}
             >
                 {/* Brand */}
-                <div className="mr-6">
+                <div className="mr-6 flex items-center gap-4">
                     <a href="#home" className="text-xl font-black tracking-tighter text-white">
                         PALPANDI<span className="text-neutral-500">.in</span>
                     </a>
+                    <div className="hidden lg:flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20">
+                        <div className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
+                        <span className="text-[8px] font-black uppercase tracking-widest text-emerald-500">Hybrid</span>
+                    </div>
                 </div>
 
                 {/* Desktop Links */}

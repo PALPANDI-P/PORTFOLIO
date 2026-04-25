@@ -30,12 +30,14 @@ export const GithubSection = () => {
                         <motion.div 
                             whileHover={{ rotate: 360 }}
                             transition={{ duration: 1 }}
-                            className="w-40 h-40 rounded-full overflow-hidden border-8 border-primary/10 mb-8 p-1 glass"
+                            className="relative w-32 h-32 md:w-40 md:h-40 rounded-full overflow-hidden border-8 border-primary/10 mb-8 p-1 glass flex-shrink-0 mx-auto"
                         >
                             <Image
                                 src="/profile.jpg"
                                 alt="GitHub Profile"
                                 fill
+                                priority
+                                sizes="(max-width: 768px) 128px, 160px"
                                 className="rounded-full object-cover object-[center_15%]"
                             />
                         </motion.div>

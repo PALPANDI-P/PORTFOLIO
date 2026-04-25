@@ -27,10 +27,17 @@ export const LinkedinSection = () => {
                                 src="/profile.jpg"
                                 alt="Profile"
                                 fill
+                                priority
+                                sizes="(max-width: 768px) 160px, 160px"
                                 className="rounded-full border-8 border-white/5 object-cover object-[center_15%] relative"
                             />
                             <div className="absolute bottom-2 right-2 bg-blue-600 p-2 rounded-full border-4 border-background text-white">
                                 <Linkedin size={18} fill="currentColor" />
+                            </div>
+                            {/* Hybrid Status Badge */}
+                            <div className="absolute -top-2 -right-4 glass px-3 py-1.5 rounded-xl border-white/10 flex items-center gap-2 shadow-xl bg-emerald-500/10 backdrop-blur-xl">
+                                <div className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
+                                <span className="text-[8px] font-black text-emerald-500 uppercase tracking-widest">Hybrid</span>
                             </div>
                         </div>
 

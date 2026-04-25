@@ -93,6 +93,7 @@ export const Activities = () => {
                                         src={activity.image} 
                                         alt={activity.title}
                                         fill
+                                        sizes="(max-width: 1024px) 100vw, 800px"
                                         className="object-cover transition-transform duration-1000 group-hover:scale-105 opacity-60 group-hover:opacity-100"
                                     />
                                     <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-80" />
