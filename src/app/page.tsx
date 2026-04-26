@@ -2,7 +2,8 @@ import { Navbar } from "@/components/Navbar";
 import { Hero } from "@/sections/Hero";
 import { About } from "@/sections/About";
 import { Skills } from "@/sections/Skills";
-import { Experience } from "@/sections/Experience";
+import { Internship } from "@/sections/Internship";
+import { Education } from "@/sections/Education";
 import { Activities } from "@/sections/Activities";
 import { Projects } from "@/sections/Projects";
 import { GithubSection } from "@/sections/Github";
@@ -17,7 +18,8 @@ export default function Home() {
       <Hero />
       <About />
       <Skills />
-      <Experience />
+      <Internship />
+      <Education />
       <Activities />
       <Projects />
       <GithubSection />

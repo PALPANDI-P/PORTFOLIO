@@ -10,8 +10,7 @@ import { Brain, Cpu, Database, Binary, Globe, Award, Target, MessageSquare } fro
 export const About = () => {
     return (
         <section id="about" className="py-32 relative overflow-hidden bg-black">
-            <Starfield count={60} />
-            <div className="absolute inset-0 z-0 bg-noise pointer-events-none opacity-[0.03]" />
+
             
             <div className="max-w-7xl mx-auto px-6 relative z-10">
                 <div className="grid lg:grid-cols-12 gap-20 items-center">

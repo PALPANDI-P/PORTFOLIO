@@ -9,19 +9,19 @@ import { Starfield } from "@/components/Starfield";
 const slides = [
     {
         tag: "Digital Ecosystems",
-        title: "ARTIFICIAL INTELLIGENCE &",
+        title: " PALPANDI P ",
         highlight: "MCA STUDENT",
-        description: "Motivated Artificial Intelligence and MCA student with strong skills in web development and machine learning concepts.",
-        cta: "Explore Research",
+        description: "Motivated Artificial Intelligence student with strong skills in Machine Learning concepts and AI",
+        cta: "Explore Work",
         link: "#projects",
     },
     {
-        tag: "Web Development",
-        title: "BUILDING RESPONSIVE",
-        highlight: "INTERFACES",
-        description: "Experienced in building responsive, mobile-friendly user interfaces and modern web layouts.",
+        tag: " AI & ML DEVELOPER ",
+        title: " AI & ML ",
+        highlight: " ENTHUSIAST ",
+        description: "Passionate about transforming ideas into intelligent solutions",
         cta: "Career Journey",
-        link: "#experience",
+        link: "#internship",
     }
 ];
 
@@ -42,9 +42,7 @@ export const Hero = () => {
 
     return (
         <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden bg-black selection:bg-white selection:text-black">
-            <Starfield count={80} />
-            
-            <div className="absolute inset-0 z-0 bg-noise pointer-events-none opacity-[0.05]" />
+
             
             {/* Massive Ambient Background Glow */}
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[1000px] bg-white/[0.02] rounded-full blur-[180px] pointer-events-none" />

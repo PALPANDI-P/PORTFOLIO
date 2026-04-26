@@ -57,7 +57,7 @@ const activities = [
 export const Activities = () => {
     return (
         <section id="activities" className="py-32 relative overflow-hidden bg-black">
-            <div className="absolute inset-0 z-0 bg-noise pointer-events-none opacity-[0.03]" />
+
             
             <div className="max-w-7xl mx-auto px-6 relative z-10">
                 <motion.div

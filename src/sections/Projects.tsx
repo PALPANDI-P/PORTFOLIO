@@ -28,7 +28,7 @@ const projects = [
 export const Projects = () => {
     return (
         <section id="projects" className="py-32 bg-black relative overflow-hidden">
-            <div className="absolute inset-0 z-0 bg-noise pointer-events-none opacity-[0.03]" />
+
             <div className="max-w-7xl mx-auto px-6">
                 <motion.div
                     variants={fadeIn("up", 0.2)}
