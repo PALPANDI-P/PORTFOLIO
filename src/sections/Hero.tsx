@@ -1,24 +1,26 @@
 "use client";
+import { Starfield } from "@/components/Starfield";
+import { useTheme } from "next-themes";
 
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence, useScroll, useTransform } from "framer-motion";
-import { ArrowRight, Github, Linkedin, Mail, Sparkles, Brain, Rocket, ChevronDown } from "lucide-react";
+import { ArrowRight, Github, Linkedin, Mail, Facebook, X, Sparkles, Brain, Rocket, ChevronDown } from "lucide-react";
 import { fadeIn } from "@/animations/variants";
 
 
 const slides = [
     {
         tag: "Digital Ecosystems",
-        title: " PALPANDI P ",
+        title: "PALPANDI P",
         highlight: "MCA STUDENT",
         description: "Motivated Artificial Intelligence student with strong skills in Machine Learning concepts and AI",
         cta: "Explore Work",
         link: "#projects",
     },
     {
-        tag: " AI & ML DEVELOPER ",
-        title: " AI & ML ",
-        highlight: " ENTHUSIAST ",
+        tag: "AI & ML DEVELOPER",
+        title: "AI & ML",
+        highlight: "ENTHUSIAST",
         description: "Passionate about transforming ideas into intelligent solutions",
         cta: "Career Journey",
         link: "#internship",
@@ -30,8 +32,8 @@ export const Hero = () => {
     const { scrollY } = useScroll();
     
     const y1 = useTransform(scrollY, [0, 500], [0, 200]);
-    const opacity = useTransform(scrollY, [0, 300], [1, 0]);
-    const scale = useTransform(scrollY, [0, 300], [1, 0.9]);
+    const opacityTransform = useTransform(scrollY, [0, 300], [1, 0]);
+    const scaleTransform = useTransform(scrollY, [0, 300], [1, 0.9]);
 
     useEffect(() => {
         const timer = setInterval(() => {
@@ -40,79 +42,139 @@ export const Hero = () => {
         return () => clearInterval(timer);
     }, []);
 
+    const containerVariants = {
+        hidden: { opacity: 0 },
+        visible: {
+            opacity: 1,
+            transition: {
+                staggerChildren: 0.2,
+                delayChildren: 0.3
+            }
+        },
+        exit: {
+            opacity: 0,
+            scale: 0.95,
+            filter: "blur(20px)",
+            transition: { duration: 0.8 }
+        }
+    };
+
+    const itemVariants = {
+        hidden: { y: 30, opacity: 0, filter: "blur(10px)" },
+        visible: { 
+            y: 0, 
+            opacity: 1, 
+            filter: "blur(0px)",
+            transition: { duration: 1, ease: [0.22, 1, 0.36, 1] }
+        }
+    };
+
+    const { theme } = useTheme();
+
     return (
-        <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden bg-black selection:bg-white selection:text-black">
-
+        <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden bg-transparent selection:bg-primary/30 selection:text-primary-foreground">
+            <div className="absolute inset-0 z-0 bg-noise pointer-events-none opacity-[0.03]" />
             
-            {/* Massive Ambient Background Glow */}
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[1000px] bg-white/[0.02] rounded-full blur-[180px] pointer-events-none" />
-
-            <div className="max-w-7xl mx-auto px-6 relative z-10 w-full flex flex-col items-center justify-center">
+            <div className="absolute inset-0 z-0 dark:block hidden">
+                <Starfield count={80} />
+                <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-[var(--background)]/80" />
+            </div>
+            
+            <div className="max-w-7xl mx-auto px-6 relative z-10 w-full flex flex-col items-center justify-center py-20">
                 <AnimatePresence mode="wait">
                     <motion.div
                         key={current}
-                        initial={{ opacity: 0, scale: 1.1, filter: "blur(20px)" }}
-                        animate={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
-                        exit={{ opacity: 0, scale: 0.95, filter: "blur(20px)" }}
-                        transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
-                        style={{ y: y1, opacity, scale }}
+                        variants={containerVariants}
+                        initial="hidden"
+                        animate="visible"
+                        exit="exit"
+                        style={{ y: y1, opacity: opacityTransform, scale: scaleTransform }}
                         className="flex flex-col items-center text-center"
                     >
-                        <div className="flex flex-wrap items-center justify-center gap-4 mb-12">
-                            <motion.div 
-                                initial={{ y: 20, opacity: 0 }}
-                                animate={{ y: 0, opacity: 1 }}
-                                transition={{ delay: 0.5 }}
-                                className="flex items-center gap-3 px-6 py-2 bg-white/5 border border-white/10 rounded-full"
-                            >
+                        <motion.div variants={itemVariants} className="mb-8">
+                            <div className="flex items-center gap-3 px-6 py-2 bg-[var(--foreground)]/5 border border-[var(--foreground)]/10 rounded-full backdrop-blur-md">
+                                <div className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
+                                <span className="text-[9px] font-bold uppercase tracking-[0.4em] text-[var(--foreground)]/50 ml-1">{slides[current].tag}</span>
+                            </div>
+                        </motion.div>
 
-                                <span className="text-[10px] font-black uppercase tracking-[0.4em] text-neutral-400">{slides[current].tag}</span>
+                        <div className="relative group/title">
+                            {/* Floating Social Icons Surrounding Name */}
+                            <motion.div 
+                                animate={{ y: [0, -15, 0], x: [0, 8, 0] }}
+                                transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+                                className="absolute -top-12 -left-12 lg:-left-24 z-20"
+                            >
+                                <a href="https://github.com/PALPANDI-P" target="_blank" className="p-3 bg-blue-50/80 dark:bg-[#181717] rounded-full backdrop-blur-md border border-blue-200/50 dark:border-white/10 text-[#181717] dark:text-white shadow-xl hover:scale-125 transition-all block group">
+                                    <Github size={20} />
+                                </a>
                             </motion.div>
 
+                            <motion.div 
+                                animate={{ y: [0, 15, 0], x: [0, -8, 0] }}
+                                transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+                                className="absolute -bottom-10 -right-12 lg:-right-24 z-20"
+                            >
+                                <a href="https://www.linkedin.com/in/palpandii" target="_blank" className="p-3 bg-blue-50/80 dark:bg-white/10 rounded-full backdrop-blur-md border border-[#0077B5]/20 text-[#0077B5] shadow-xl hover:scale-125 transition-all block">
+                                    <Linkedin size={20} fill="currentColor" />
+                                </a>
+                            </motion.div>
 
+                            <motion.div 
+                                animate={{ y: [0, -12, 0], x: [0, -12, 0] }}
+                                transition={{ duration: 6, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
+                                className="absolute top-0 -right-16 lg:-right-32 z-20"
+                            >
+                                <a href="mailto:mr.palpandii@gmail.com" className="p-3 bg-blue-50/80 dark:bg-white/10 rounded-full backdrop-blur-md border border-[#EA4335]/20 text-[#EA4335] shadow-xl hover:scale-125 transition-all block">
+                                    <Mail size={20} />
+                                </a>
+                            </motion.div>
+
+                            <motion.div 
+                                animate={{ y: [0, 12, 0], x: [0, 12, 0] }}
+                                transition={{ duration: 4.5, repeat: Infinity, ease: "easeInOut", delay: 1.5 }}
+                                className="absolute top-0 -left-16 lg:-left-32 z-20"
+                            >
+                                <a href="#" className="p-3 bg-blue-50/80 dark:bg-white/10 rounded-full backdrop-blur-md border border-[#1877F2]/20 text-[#1877F2] shadow-xl hover:scale-125 transition-all block">
+                                    <Facebook size={20} fill="currentColor" />
+                                </a>
+                            </motion.div>
+
+                            <motion.h1 variants={itemVariants} className="flex flex-col items-center gap-0 mb-8">
+                                <div className="overflow-hidden">
+                                    <motion.span 
+                                        initial={{ y: "100%" }}
+                                        animate={{ y: 0 }}
+                                        transition={{ duration: 1, ease: [0.16, 1, 0.3, 1], delay: 0.5 }}
+                                        className="block text-5xl md:text-7xl lg:text-8xl font-black tracking-[-0.04em] text-[var(--foreground)] leading-[0.9] font-display"
+                                    >
+                                        {slides[current].title}
+                                    </motion.span>
+                                </div>
+                                <motion.span 
+                                    variants={itemVariants}
+                                    className="text-lg md:text-2xl lg:text-3xl font-bold tracking-[0.2em] text-primary uppercase font-display mt-2"
+                                >
+                                    {slides[current].highlight}
+                                </motion.span>
+                            </motion.h1>
                         </div>
 
-                        <h1 className="flex flex-col gap-2 mb-10">
-                            <span className="text-3xl md:text-5xl lg:text-6xl font-black tracking-tighter text-white leading-tight italic">
-                                {slides[current].title}
-                            </span>
-                            <span className="text-4xl md:text-6xl lg:text-7xl font-black tracking-tighter text-neutral-600 leading-tight">
-                                {slides[current].highlight}
-                            </span>
-                        </h1>
-
-                        <p className="max-w-2xl text-xl md:text-2xl text-neutral-500 font-medium leading-relaxed mb-16">
+                        <motion.p variants={itemVariants} className="max-w-xl text-base md:text-lg text-[var(--foreground)]/60 font-medium leading-relaxed mb-12 px-4">
                             {slides[current].description}
-                        </p>
+                        </motion.p>
 
-                        <div className="flex flex-col sm:flex-row items-center gap-8">
+                        <motion.div variants={itemVariants} className="flex flex-col sm:flex-row items-center gap-8 mb-12">
                             <motion.a
-                                whileHover={{ scale: 1.05 }}
-                                whileTap={{ scale: 0.95 }}
+                                whileHover={{ scale: 1.02, y: -4 }}
+                                whileTap={{ scale: 0.98 }}
                                 href={slides[current].link}
-                                className="px-12 py-6 bg-white text-black rounded-[24px] font-black text-lg tracking-tight hover:shadow-[0_0_40px_rgba(255,255,255,0.2)] transition-all"
+                                className="px-12 py-5 bg-[var(--foreground)] text-[var(--background)] rounded-full font-bold text-lg tracking-tight shadow-[0_20px_50px_rgba(0,0,0,0.1)] dark:shadow-[0_20px_50px_rgba(255,255,255,0.05)] transition-all flex items-center gap-3"
                             >
                                 {slides[current].cta}
+                                <ArrowRight size={20} />
                             </motion.a>
-                            
-                            <div className="flex items-center gap-10">
-                                {[
-                                    { icon: Github, href: "https://github.com/PALPANDI-P" },
-                                    { icon: Linkedin, href: "https://www.linkedin.com/in/palpandii" },
-                                    { icon: Mail, href: "mailto:mr.palpandii@gmail.com" }
-                                ].map((social, i) => (
-                                    <motion.a
-                                        key={i}
-                                        href={social.href}
-                                        target="_blank"
-                                        whileHover={{ y: -5, color: "#fff" }}
-                                        className="text-neutral-500 transition-colors"
-                                    >
-                                        <social.icon size={28} strokeWidth={1.5} />
-                                    </motion.a>
-                                ))}
-                            </div>
-                        </div>
+                        </motion.div>
                     </motion.div>
                 </AnimatePresence>
             </div>
@@ -121,11 +183,19 @@ export const Hero = () => {
             <motion.div 
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
-                transition={{ delay: 2 }}
-                className="absolute bottom-4 left-1/2 -translate-x-1/2 flex flex-col items-center gap-4 z-20"
+                transition={{ delay: 2, duration: 1 }}
+                className="absolute bottom-12 left-1/2 -translate-x-1/2 flex flex-col items-center gap-4 z-20"
             >
-                <span className="text-[9px] font-black uppercase tracking-[0.4em] text-neutral-800">Initialize Scroll</span>
-                <div className="w-[1px] h-10 bg-gradient-to-b from-neutral-800 to-transparent" />
+                <div className="flex flex-col items-center gap-3 group cursor-pointer" onClick={() => window.scrollTo({ top: window.innerHeight, behavior: 'smooth' })}>
+                    <span className="text-[10px] font-bold uppercase tracking-[0.8em] text-[var(--foreground)]/10 group-hover:text-primary transition-colors">Discover</span>
+                    <motion.div 
+                        animate={{ y: [0, 8, 0] }}
+                        transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+                        className="p-2 rounded-full border border-[var(--foreground)]/5"
+                    >
+                        <ChevronDown size={18} className="text-primary/40 group-hover:text-primary transition-colors" />
+                    </motion.div>
+                </div>
             </motion.div>
         </section>
     );

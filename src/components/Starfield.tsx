@@ -1,37 +1,32 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React from "react";
+import { motion } from "framer-motion";
 
-const Star = ({ top, left, delay, duration }: { top: string; left: string; delay: string; duration: string }) => (
-    <div 
-        className="absolute w-[2px] h-[2px] bg-white rounded-full animate-twinkle pointer-events-none"
-        style={{ 
-            top, 
-            left, 
-            "--duration": duration,
-            animationDelay: delay 
-        } as React.CSSProperties}
-    />
-);
-
-export const Starfield = ({ count = 30 }: { count?: number }) => {
-    const [stars, setStars] = useState<{ top: string; left: string; delay: string; duration: string }[]>([]);
-
-    useEffect(() => {
-        const newStars = Array.from({ length: count }).map(() => ({
-            top: `${Math.random() * 100}%`,
-            left: `${Math.random() * 100}%`,
-            delay: `${Math.random() * 5}s`,
-            duration: `${2 + Math.random() * 3}s`
-        }));
-        // eslint-disable-next-line react-hooks/set-state-in-effect
-        setStars(newStars);
-    }, [count]);
-
+export const Starfield = ({ count = 50 }: { count?: number }) => {
     return (
-        <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
-            {stars.map((star, i) => (
-                <Star key={i} {...star} />
+        <div className="absolute inset-0 pointer-events-none overflow-hidden">
+            {[...Array(count)].map((_, i) => (
+                <motion.div
+                    key={i}
+                    initial={{ opacity: Math.random() * 0.5 + 0.2 }}
+                    animate={{ 
+                        opacity: [null, Math.random() * 0.8 + 0.2, Math.random() * 0.5 + 0.2],
+                        scale: [1, 1.2, 1]
+                    }}
+                    transition={{ 
+                        duration: Math.random() * 3 + 2, 
+                        repeat: Infinity, 
+                        ease: "easeInOut" 
+                    }}
+                    className="absolute bg-white rounded-full"
+                    style={{
+                        width: Math.random() * 2 + 1 + "px",
+                        height: Math.random() * 2 + 1 + "px",
+                        top: Math.random() * 100 + "%",
+                        left: Math.random() * 100 + "%",
+                    }}
+                />
             ))}
         </div>
     );

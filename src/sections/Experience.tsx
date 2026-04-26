@@ -53,12 +53,12 @@ export const Experience = () => {
                     viewport={{ once: true }}
                     className="flex flex-col mb-24"
                 >
-                    <span className="text-[11px] font-black tracking-[0.4em] uppercase text-neutral-500 mb-4 flex items-center gap-4">
-                        <span className="w-12 h-[1px] bg-neutral-800" /> 
+                    <span className="text-[11px] font-bold tracking-[0.4em] uppercase text-white/40 mb-4 flex items-center gap-4">
+                        <span className="w-12 h-[1px] bg-white/10" /> 
                         Career Path
                     </span>
-                    <h2 className="text-4xl md:text-6xl font-black tracking-tighter text-white">
-                        Professional <span className="text-neutral-500">Journey</span>
+                    <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-white">
+                        Professional <span className="text-white/40">Journey</span>
                     </h2>
                 </motion.div>
 
@@ -70,28 +70,28 @@ export const Experience = () => {
                             initial="hidden"
                             whileInView="show"
                             viewport={{ once: true }}
-                            className="group relative bg-neutral-900/50 border border-white/5 p-8 md:p-12 rounded-[32px] hover:border-white/10 hover:bg-neutral-900 transition-all duration-500"
+                            className="group relative bg-white/[0.02] border border-white/5 p-8 md:p-12 rounded-[32px] hover:border-white/10 transition-all duration-500"
                         >
                             <div className="flex flex-col md:flex-row md:items-start justify-between gap-8">
                                 <div className="space-y-4">
-                                    <div className="flex items-center gap-3 text-neutral-500 font-bold text-xs uppercase tracking-widest">
+                                    <div className="flex items-center gap-3 text-white/40 font-bold text-xs uppercase tracking-widest">
                                         <span className="flex items-center gap-2"><Briefcase size={14} /> {exp.company}</span>
-                                        <span className="w-1 h-1 rounded-full bg-neutral-800" />
+                                        <span className="w-1 h-1 rounded-full bg-white/10" />
                                         <span className="flex items-center gap-2 space-x-2"><MapPin size={14} /> {exp.location}</span>
                                     </div>
-                                    <h3 className="text-3xl font-black text-white">{exp.role}</h3>
+                                    <h3 className="text-2xl font-bold text-white">{exp.role}</h3>
                                     
                                     <ul className="grid gap-3 pt-4">
                                         {exp.achievements.map((achievement, i) => (
-                                            <li key={i} className="flex items-start gap-4 text-neutral-400 group-hover:text-neutral-200 transition-colors leading-relaxed">
-                                                <div className="mt-2 w-1.5 h-1.5 rounded-full bg-white opacity-20 flex-shrink-0" />
+                                            <li key={i} className="flex items-start gap-4 text-white/60 leading-relaxed">
+                                                <div className="mt-2 w-1.5 h-1.5 rounded-full bg-white/20 flex-shrink-0" />
                                                 <span className="text-sm md:text-base">{achievement}</span>
                                             </li>
                                         ))}
                                     </ul>
                                 </div>
                                 <div className="flex-shrink-0">
-                                    <div className="px-6 py-2.5 bg-white text-black rounded-xl font-black text-[10px] uppercase tracking-widest shadow-xl">
+                                    <div className="px-6 py-2.5 bg-white text-black rounded-xl font-bold text-[10px] uppercase tracking-widest shadow-xl">
                                         {exp.period}
                                     </div>
                                 </div>

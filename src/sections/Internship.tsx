@@ -21,25 +21,30 @@ const internships = [
 
 export const Internship = () => {
     return (
-        <section id="internship" className="py-32 relative overflow-hidden bg-black">
+        <section id="internship" className="py-32 relative overflow-hidden bg-transparent">
+            {/* Background Decoration */}
+            <div className="absolute inset-0 pointer-events-none">
+                <div className="absolute inset-0 bg-grid opacity-[0.02] dark:opacity-[0.05]" />
+            </div>
+
             <div className="max-w-7xl mx-auto px-6 relative z-10">
                 <motion.div
                     variants={fadeIn("up", 0.2)}
                     initial="hidden"
                     whileInView="show"
                     viewport={{ once: true }}
-                    className="flex flex-col mb-24"
+                    className="flex flex-col mb-20"
                 >
-                    <span className="text-[11px] font-black tracking-[0.4em] uppercase text-neutral-500 mb-4 flex items-center gap-4">
-                        <span className="w-12 h-[1px] bg-neutral-800" /> 
+                    <span className="text-[9px] font-bold tracking-[0.4em] uppercase text-[var(--foreground)]/40 mb-4 flex items-center gap-4">
+                        <span className="w-12 h-[1px] bg-primary/20" /> 
                         Professional Experience
                     </span>
-                    <h2 className="text-4xl md:text-6xl font-black tracking-tighter text-white">
-                        Internship <span className="text-neutral-500">Milestones</span>
+                    <h2 className="text-3xl md:text-5xl font-extrabold tracking-tighter text-[var(--foreground)] font-display">
+                        Internship <span className="text-primary">Milestones</span>
                     </h2>
                 </motion.div>
 
-                <div className="space-y-8">
+                <div className="space-y-6">
                     {internships.map((intern, idx) => (
                         <motion.div
                             key={idx}
@@ -47,28 +52,28 @@ export const Internship = () => {
                             initial="hidden"
                             whileInView="show"
                             viewport={{ once: true }}
-                            className="group relative bg-neutral-900/50 border border-white/5 p-8 md:p-12 rounded-[32px] hover:border-white/10 hover:bg-neutral-900 transition-all duration-500"
+                            className="group relative bg-[var(--foreground)]/[0.02] border border-[var(--foreground)]/5 p-8 md:p-10 rounded-[24px] hover:border-primary/20 transition-all duration-500"
                         >
-                            <div className="flex flex-col md:flex-row md:items-start justify-between gap-8">
-                                <div className="space-y-4">
-                                    <div className="flex items-center gap-3 text-neutral-500 font-bold text-xs uppercase tracking-widest">
-                                        <span className="flex items-center gap-2"><Briefcase size={14} /> {intern.company}</span>
-                                        <span className="w-1 h-1 rounded-full bg-neutral-800" />
-                                        <span className="flex items-center gap-2 space-x-2"><MapPin size={14} /> {intern.location}</span>
+                            <div className="flex flex-col md:flex-row md:items-start justify-between gap-6">
+                                <div className="space-y-3 flex-grow">
+                                    <div className="flex items-center gap-3 text-[var(--foreground)]/40 font-bold text-[10px] uppercase tracking-widest">
+                                        <span className="flex items-center gap-2"><Briefcase size={12} className="text-primary" /> {intern.company}</span>
+                                        <span className="w-1 h-1 rounded-full bg-[var(--foreground)]/10" />
+                                        <span className="flex items-center gap-2"><MapPin size={12} /> {intern.location}</span>
                                     </div>
-                                    <h3 className="text-3xl font-black text-white">{intern.role}</h3>
+                                    <h3 className="text-2xl font-bold text-[var(--foreground)] tracking-tight">{intern.role}</h3>
                                     
-                                    <ul className="grid gap-3 pt-4">
+                                    <ul className="grid gap-2.5 pt-3">
                                         {intern.highlights.map((highlight, i) => (
-                                            <li key={i} className="flex items-start gap-4 text-neutral-400 group-hover:text-neutral-200 transition-colors leading-relaxed">
-                                                <div className="mt-2 w-1.5 h-1.5 rounded-full bg-white opacity-20 flex-shrink-0" />
-                                                <span className="text-sm md:text-base">{highlight}</span>
+                                            <li key={i} className="flex items-start gap-3 text-[var(--foreground)]/60 leading-relaxed">
+                                                <div className="mt-2 w-1 h-1 rounded-full bg-primary/20 flex-shrink-0" />
+                                                <span className="text-sm md:text-base font-medium">{highlight}</span>
                                             </li>
                                         ))}
                                     </ul>
                                 </div>
                                 <div className="flex-shrink-0">
-                                    <div className="px-6 py-2.5 bg-white text-black rounded-xl font-black text-[10px] uppercase tracking-widest shadow-xl">
+                                    <div className="px-5 py-2 bg-[var(--foreground)] text-[var(--background)] rounded-lg font-bold text-[9px] uppercase tracking-widest">
                                         {intern.period}
                                     </div>
                                 </div>

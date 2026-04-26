@@ -1,14 +1,8 @@
 @import "tailwindcss";
 
 @theme inline {
-  --color-black: var(--background);
-  --color-white: var(--foreground);
-  --color-neutral-400: var(--muted-foreground);
-  --color-neutral-500: var(--muted-foreground);
-  --color-neutral-600: var(--muted-foreground);
-  --color-neutral-800: var(--border);
-  --color-neutral-900: var(--secondary);
-
+  --font-sans: var(--font-outfit), ui-sans-serif, system-ui;
+  --font-display: var(--font-bricolage), ui-sans-serif, system-ui;
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-primary: var(--primary);
@@ -21,58 +15,44 @@
   --color-accent-foreground: var(--accent-foreground);
   --color-border: var(--border);
   --color-ring: var(--ring);
-
-  --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui;
-  --font-mono: var(--font-geist-mono), ui-monospace, monospace;
-
-  --animate-float: float 6s ease-in-out infinite;
-  --animate-pulse-slow: pulse-slow 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-  --animate-twinkle: twinkle var(--duration, 3s) ease-in-out infinite;
-
-  @keyframes float {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-20px); }
-  }
-
-  @keyframes pulse-slow {
-    0%, 100% { opacity: 0.8; }
-    50% { opacity: 0.4; }
-  }
-
-  @keyframes twinkle {
-    0%, 100% { opacity: 0.2; transform: scale(1); }
-    50% { opacity: 1; transform: scale(1.2); }
-  }
 }
 
 :root {
-  --background: #f8fafc;
-  --foreground: #0f172a;
-  --primary: #2563eb;
+  --background: #ffffff;
+  --foreground: #020617;
+  --primary: #0ea5e9;
+  --sky-blue: #0ea5e9;
   --primary-foreground: #ffffff;
-  --secondary: #e2e8f0;
-  --secondary-foreground: #1e293b;
-  --muted: #f1f5f9;
-  --muted-foreground: #64748b;
-  --accent: #f1f5f9;
-  --accent-foreground: #0f172a;
-  --border: #cbd5e1;
-  --ring: #3b82f6;
+  --secondary: #f0f9ff;
+  --secondary-foreground: #0369a1;
+  --muted: #f8fafc;
+  --muted-foreground: #475569;
+  --accent: #0ea5e9;
+  --accent-foreground: #ffffff;
+  --border: #e2e8f0;
+  --ring: #0ea5e9;
+  --radius: 0.75rem;
+  --card: #ffffff;
+  --card-foreground: #020617;
+  --horizon-glow: radial-gradient(circle at 50% 100%, rgba(14, 165, 233, 0.08), transparent 50%);
 }
 
 .dark {
   --background: #000000;
-  --foreground: #ffffff;
+  --foreground: #f8fafc;
   --primary: #ffffff;
   --primary-foreground: #000000;
-  --secondary: #0a0a0a;
-  --secondary-foreground: #ffffff;
+  --secondary: #111111;
+  --secondary-foreground: #f8fafc;
   --muted: #0a0a0a;
-  --muted-foreground: #a1a1aa;
-  --accent: #18181b;
-  --accent-foreground: #ffffff;
-  --border: #27272a;
+  --muted-foreground: #94a3b8;
+  --accent: #e2e8f0;
+  --accent-foreground: #000000;
+  --border: rgba(255, 255, 255, 0.1);
   --ring: #ffffff;
+  --card: #0a0a0a;
+  --card-foreground: #f8fafc;
+  --horizon-glow: radial-gradient(circle at 50% 100%, rgba(255, 255, 255, 0.08), transparent 50%);
 }
 
 @layer base {
@@ -80,36 +60,23 @@
     border-color: var(--border);
   }
   body {
-    background: var(--background);
+    background-color: var(--background);
+    background-image: var(--horizon-glow);
+    background-attachment: fixed;
     color: var(--foreground);
     font-family: var(--font-sans);
-    @apply transition-colors duration-300;
     scroll-behavior: smooth;
+    transition: background-color 0.6s cubic-bezier(0.4, 0, 0.2, 1), color 0.6s cubic-bezier(0.4, 0, 0.2, 1);
   }
 }
 
 @layer utilities {
-  .glass {
-    @apply bg-background/60 backdrop-blur-md border border-border;
-  }
-  .text-gradient {
-    @apply bg-clip-text text-transparent bg-gradient-to-r from-white via-neutral-400 to-white;
-  }
-  .bg-grid {
-    background-image: radial-gradient(circle at center, var(--border) 1px, transparent 1px);
-    background-size: 24px 24px;
-  }
   .bg-noise {
     background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
     opacity: 0.03;
   }
-  .bg-scanlines {
-    background: linear-gradient(
-      to bottom,
-      transparent 50%,
-      rgba(0, 0, 0, 0.5) 50%
-    );
-    background-size: 100% 4px;
-    pointer-events: none;
+  .bg-grid {
+    background-image: radial-gradient(circle at center, var(--border) 1px, transparent 1px);
+    background-size: 24px 24px;
   }
 }

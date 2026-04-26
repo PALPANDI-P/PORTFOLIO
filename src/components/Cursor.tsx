@@ -37,7 +37,7 @@ export const Cursor = () => {
         <>
             {/* Main Cursor Dot */}
             <motion.div
-                className="fixed top-0 left-0 w-3 h-3 bg-white rounded-full pointer-events-none z-[9999] mix-blend-difference"
+                className="fixed top-0 left-0 w-3 h-3 bg-foreground rounded-full pointer-events-none z-[9999] mix-blend-difference"
                 style={{
                     x: cursorXSpring,
                     y: cursorYSpring,
@@ -48,7 +48,7 @@ export const Cursor = () => {
             />
             {/* Outer Ring / Glow */}
             <motion.div
-                className="fixed top-0 left-0 w-12 h-12 border border-white/20 rounded-full pointer-events-none z-[9998]"
+                className="fixed top-0 left-0 w-12 h-12 border border-foreground/20 rounded-full pointer-events-none z-[9998]"
                 style={{
                     x: cursorXSpring,
                     y: cursorYSpring,
@@ -60,7 +60,7 @@ export const Cursor = () => {
             />
             {/* Dynamic Spotlight Effect */}
             <motion.div
-                className="fixed top-0 left-0 w-[600px] h-[600px] bg-white/[0.03] rounded-full blur-[120px] pointer-events-none z-[0]"
+                className="fixed top-0 left-0 w-[600px] h-[600px] bg-primary/[0.03] rounded-full blur-[120px] pointer-events-none z-[0]"
                 style={{
                     x: cursorXSpring,
                     y: cursorYSpring,

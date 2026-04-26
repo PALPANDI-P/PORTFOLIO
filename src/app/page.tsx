@@ -13,7 +13,7 @@ import { Footer } from "@/components/Footer";
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col bg-background selection:bg-primary/30">
+    <main className="flex min-h-screen flex-col bg-[var(--background)] selection:bg-primary/30 selection:text-primary-foreground">
       <Navbar />
       <Hero />
       <About />

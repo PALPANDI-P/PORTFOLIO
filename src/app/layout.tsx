@@ -1,22 +1,26 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
-import "./globals.css";
+import { Outfit, Plus_Jakarta_Sans, Bricolage_Grotesque } from "next/font/google";
 import { ThemeProvider } from "@/components/ThemeProvider";
-import { Cursor } from "@/components/Cursor";
+import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const outfit = Outfit({
+  variable: "--font-outfit",
   subsets: ["latin"],
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const jakarta = Plus_Jakarta_Sans({
+  variable: "--font-jakarta",
+  subsets: ["latin"],
+});
+
+const bricolage = Bricolage_Grotesque({
+  variable: "--font-bricolage",
   subsets: ["latin"],
 });
 
 export const metadata: Metadata = {
-  title: "Palpandi P - Full Stack AI Developer Portfolio",
-  description: "A professional portfolio showcasing modern web development projects, AI solutions, and full-stack expertise.",
+  title: "Palpandi P - Portfolio",
+  description: "MCA Student & AI Enthusiast",
 };
 
 export default function RootLayout({
@@ -27,16 +31,14 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${geistSans.className} ${geistMono.variable} antialiased selection:bg-white selection:text-black`}
+        className={`${outfit.variable} ${jakarta.variable} ${bricolage.variable} antialiased transition-colors duration-500`}
       >
         <ThemeProvider
           attribute="class"
-          defaultTheme="light"
+          defaultTheme="system"
           enableSystem
           disableTransitionOnChange
         >
-          <Cursor />
-          <div className="fixed inset-0 z-[9997] bg-scanlines opacity-[0.02] pointer-events-none" />
           {children}
         </ThemeProvider>
       </body>
