@@ -9,7 +9,13 @@ const skills = [
     {
         category: "Programming Languages",
         icon: <Code2 className="text-white" size={32} />,
-        items: ["Java", "Python", "C++", "HTML", "CSS"],
+        items: ["Java", "Python", "C++", "SQL"],
+        color: "from-white/10 to-white/5",
+    },
+    {
+        category: "Web Design",
+        icon: <Layout className="text-white" size={32} />,
+        items: ["HTML", "CSS"],
         color: "from-white/10 to-white/5",
     },
     {

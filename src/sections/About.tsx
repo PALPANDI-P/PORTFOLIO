@@ -3,9 +3,9 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { fadeIn, staggerContainer } from "@/animations/variants";
-import { Starfield } from "@/components/Starfield";
 
-import { Brain, Cpu, Database, Binary, Globe, Award, Target, MessageSquare } from "lucide-react";
+
+import { Brain, Cpu, Database, Binary, Globe } from "lucide-react";
 
 export const About = () => {
     return (
@@ -97,36 +97,7 @@ export const About = () => {
                             </div>
                         </motion.div>
 
-                        {/* Bento Style Metric Cards */}
-                        <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
-                            {[
-                                { val: "7.9", label: "MCA GPA (Alagappa University)", icon: Target },
-                                { val: "7.6", label: "BCA GPA (Madurai Kamaraj)", icon: Award },
-                                { val: "Fluent", label: "Tamil & English Languages", icon: MessageSquare }
-                            ].map((met, i) => (
-                                <motion.div
-                                    key={i}
-                                    variants={fadeIn("up", 0.4 + i * 0.1)}
-                                    initial="hidden"
-                                    whileInView="show"
-                                    viewport={{ once: true }}
-                                    whileHover={{ y: -5 }}
-                                    className="p-8 glass rounded-[32px] border-white/5 hover:border-white/20 transition-all flex flex-col gap-6 group bg-white/[0.02]"
-                                >
-                                    <div className="flex items-center justify-between">
-                                        <div className="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center text-white/50 group-hover:text-white transition-colors border border-white/5">
-                                            <met.icon size={18} />
-                                        </div>
-                                    </div>
-                                    <div className="space-y-1">
-                                        <div className="text-3xl font-black text-white tracking-tighter">{met.val}</div>
-                                        <p className="text-[10px] font-bold text-neutral-500 uppercase tracking-widest leading-snug">
-                                            {met.label}
-                                        </p>
-                                    </div>
-                                </motion.div>
-                            ))}
-                        </div>
+
                     </div>
 
                 </div>

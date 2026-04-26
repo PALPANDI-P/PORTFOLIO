@@ -72,7 +72,7 @@ export const Activities = () => {
                         Ecosystem & Impact
                     </span>
                     <h2 className="text-4xl md:text-6xl font-black tracking-tighter text-white">
-                        Innovation <span className="text-neutral-500">Milestones</span>
+                        Professional <span className="text-neutral-500">Certifications</span>
                     </h2>
                 </motion.div>
 
@@ -118,7 +118,7 @@ export const Activities = () => {
                                         <div className="flex items-center gap-4 text-neutral-500 text-xs font-bold uppercase tracking-widest">
                                             <span className="flex items-center gap-2"><Calendar size={14} /> {activity.date}</span>
                                             <span className="w-1 h-1 rounded-full bg-neutral-800" />
-                                            <span className="flex items-center gap-2"><Target size={14} /> Milestones</span>
+                                            <span className="flex items-center gap-2"><Target size={14} /> {activity.host}</span>
                                         </div>
                                         <h3 className="text-3xl md:text-5xl font-black text-white leading-tight tracking-tight">
                                             {activity.title}

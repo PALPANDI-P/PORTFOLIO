@@ -27,20 +27,22 @@ export const GithubSection = () => {
 
                     {/* Profile Card */}
                     <div className="md:w-1/3 flex flex-col items-center text-center relative z-10">
-                        <motion.div 
-                            whileHover={{ rotate: 360 }}
-                            transition={{ duration: 1 }}
-                            className="relative w-32 h-32 md:w-40 md:h-40 rounded-full overflow-hidden border-8 border-primary/10 mb-8 p-1 glass flex-shrink-0 mx-auto"
-                        >
-                            <Image
-                                src="/profile.jpg"
-                                alt="GitHub Profile"
-                                fill
-                                priority
-                                sizes="(max-width: 768px) 128px, 160px"
-                                className="rounded-full object-cover object-[center_15%]"
-                            />
-                        </motion.div>
+                        <div className="relative w-32 h-32 md:w-40 md:h-40 mb-8 flex items-center justify-center">
+                            {/* Layered Circles */}
+                            <div className="absolute inset-0 bg-primary/5 rounded-full blur-2xl scale-125" />
+                            <div className="absolute inset-0 border-2 border-primary/10 rounded-full scale-110" />
+                            
+                            <div className="relative w-full h-full rounded-full overflow-hidden border-4 border-white/10 p-1 glass flex-shrink-0">
+                                <Image
+                                    src="/profile.jpg"
+                                    alt="GitHub Profile"
+                                    fill
+                                    priority
+                                    sizes="(max-width: 768px) 128px, 160px"
+                                    className="rounded-full object-cover object-[center_15%]"
+                                />
+                            </div>
+                        </div>
                         <h2 className="text-3xl font-black mb-3 flex items-center gap-3">
                             @PALPANDI-P <Github size={32} />
                         </h2>

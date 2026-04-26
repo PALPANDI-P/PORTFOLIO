@@ -4,7 +4,7 @@ import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence, useScroll, useTransform } from "framer-motion";
 import { ArrowRight, Github, Linkedin, Mail, Sparkles, Brain, Rocket, ChevronDown } from "lucide-react";
 import { fadeIn } from "@/animations/variants";
-import { Starfield } from "@/components/Starfield";
+
 
 const slides = [
     {
@@ -47,7 +47,7 @@ export const Hero = () => {
             {/* Massive Ambient Background Glow */}
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[1000px] bg-white/[0.02] rounded-full blur-[180px] pointer-events-none" />
 
-            <div className="max-w-7xl mx-auto px-6 relative z-10 w-full">
+            <div className="max-w-7xl mx-auto px-6 relative z-10 w-full flex flex-col items-center justify-center">
                 <AnimatePresence mode="wait">
                     <motion.div
                         key={current}
@@ -65,22 +65,11 @@ export const Hero = () => {
                                 transition={{ delay: 0.5 }}
                                 className="flex items-center gap-3 px-6 py-2 bg-white/5 border border-white/10 rounded-full"
                             >
-                                <div className="w-1.5 h-1.5 rounded-full bg-white animate-pulse" />
+
                                 <span className="text-[10px] font-black uppercase tracking-[0.4em] text-neutral-400">{slides[current].tag}</span>
                             </motion.div>
 
-                            <motion.div 
-                                initial={{ y: 20, opacity: 0 }}
-                                animate={{ y: 0, opacity: 1 }}
-                                transition={{ delay: 0.6 }}
-                                className="flex items-center gap-3 px-4 py-2 bg-emerald-500/10 border border-emerald-500/20 rounded-full backdrop-blur-md"
-                            >
-                                <div className="relative flex h-2 w-2">
-                                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                                    <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
-                                </div>
-                                <span className="text-[9px] font-black uppercase tracking-[0.2em] text-emerald-500 whitespace-nowrap">Open to Hybrid Roles</span>
-                            </motion.div>
+
                         </div>
 
                         <h1 className="flex flex-col gap-2 mb-10">
@@ -133,10 +122,10 @@ export const Hero = () => {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 2 }}
-                className="absolute bottom-12 left-1/2 -translate-x-1/2 flex flex-col items-center gap-4"
+                className="absolute bottom-4 left-1/2 -translate-x-1/2 flex flex-col items-center gap-4 z-20"
             >
-                <span className="text-[10px] font-black uppercase tracking-[0.5em] text-neutral-700">Initialize Scroll</span>
-                <div className="w-[1px] h-12 bg-gradient-to-b from-neutral-800 to-transparent" />
+                <span className="text-[9px] font-black uppercase tracking-[0.4em] text-neutral-800">Initialize Scroll</span>
+                <div className="w-[1px] h-10 bg-gradient-to-b from-neutral-800 to-transparent" />
             </motion.div>
         </section>
     );
