@@ -2,10 +2,10 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import { fadeIn, staggerContainer } from "@/animations/variants";
+import { fadeIn } from "@/animations/variants";
 
 
-import { Brain, Cpu, Database, Binary, Globe } from "lucide-react";
+import { Brain, Cpu, Database, Globe } from "lucide-react";
 
 export const About = () => {
     return (

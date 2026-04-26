@@ -3,7 +3,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { fadeIn, staggerContainer } from "@/animations/variants";
-import { ExternalLink, Github, Monitor, Layers, Cpu } from "lucide-react";
+import { ExternalLink, Github, Layers, Cpu } from "lucide-react";
 import Image from "next/image";
 
 const projects = [

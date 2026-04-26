@@ -1,11 +1,7 @@
 "use client";
-import { Starfield } from "@/components/Starfield";
-import { useTheme } from "next-themes";
-
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence, useScroll, useTransform } from "framer-motion";
-import { ArrowRight, Github, Linkedin, Mail, Facebook, X, Sparkles, Brain, Rocket, ChevronDown } from "lucide-react";
-import { fadeIn } from "@/animations/variants";
+import { ArrowRight, Github, Linkedin, Mail, Facebook, X, ChevronDown } from "lucide-react";
 
 
 const slides = [
@@ -69,7 +65,7 @@ export const Hero = () => {
         }
     };
 
-    const { theme } = useTheme();
+
 
     return (
         <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden bg-transparent selection:bg-primary/30 selection:text-primary-foreground">
@@ -157,7 +153,7 @@ export const Hero = () => {
                             </motion.h1>
                         </div>
 
-                        <motion.p variants={itemVariants} className="max-w-xl text-base md:text-lg text-[var(--foreground)]/60 font-medium leading-relaxed mb-12 px-4">
+                        <motion.p variants={itemVariants} className="max-w-xl text-base md:text-lg text-[#0369a1] dark:text-[#f8fafc]/60 font-medium leading-relaxed mb-12 px-4">
                             {slides[current].description}
                         </motion.p>
 
