@@ -75,10 +75,7 @@ export const Hero = () => {
         <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden bg-transparent selection:bg-primary/30 selection:text-primary-foreground">
             <div className="absolute inset-0 z-0 bg-noise pointer-events-none opacity-[0.03]" />
             
-            <div className="absolute inset-0 z-0 dark:block hidden">
-                <Starfield count={80} />
-                <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-[var(--background)]/80" />
-            </div>
+            <div className="absolute inset-0 z-0 dark:bg-black hidden dark:block" />
             
             <div className="max-w-7xl mx-auto px-6 relative z-10 w-full flex flex-col items-center justify-center py-20">
                 <AnimatePresence mode="wait">

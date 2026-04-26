@@ -18,12 +18,12 @@ export const LinkedinSection = () => {
                     className="bg-[var(--foreground)]/[0.02] p-6 md:p-12 rounded-[30px] md:rounded-[50px] border border-[var(--foreground)]/5 flex flex-col items-center text-center max-w-4xl mx-auto relative overflow-hidden"
                 >
                     {/* Background Pulse */}
-                    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] bg-primary/5 rounded-full blur-3xl" />
+                    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] bg-primary/5 rounded-full blur-3xl dark:hidden" />
 
                     <div className="relative z-10 w-full flex flex-col items-center">
                         <div className="relative w-40 h-40 mb-8 flex items-center justify-center">
                             {/* Layered Circles */}
-                            <div className="absolute inset-0 bg-primary/5 rounded-full blur-3xl scale-150" />
+                            <div className="absolute inset-0 bg-primary/5 rounded-full blur-3xl scale-150 dark:hidden" />
                             <div className="absolute inset-0 border-2 border-[var(--foreground)]/10 rounded-full scale-110" />
                             
                             <div className="relative w-full h-full rounded-full overflow-hidden border-4 border-[var(--foreground)]/10 p-1">
