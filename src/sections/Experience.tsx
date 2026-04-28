@@ -21,7 +21,7 @@ const experiences = [
         role: "Master of Computer Applications (MCA)",
         company: "Alagappa University",
         period: "Jul 2024 – Present",
-        location: "Karaikudi",
+        location: "Sivaganga",
         achievements: [
             "Current GPA: 7.9",
             "Specializing in advanced computational methodologies and algorithms.",

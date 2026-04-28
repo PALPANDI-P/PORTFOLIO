@@ -10,7 +10,7 @@ const education = [
         degree: "Master of Computer Applications (MCA)",
         institution: "Alagappa University",
         period: "Jul 2024 – Present",
-        location: "Karaikudi",
+        location: "Sivaganga",
         score: "GPA: 7.9",
         specialization: "Advanced Computational Methodologies",
     },
