@@ -79,7 +79,7 @@ export const Navbar = () => {
                 <div className="flex items-center gap-2 md:hidden">
                     <button
                         onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-                        className="p-2 text-[var(--foreground)]/50 hover:text-primary transition-colors"
+                        className="p-2 text-[var(--foreground)] hover:text-primary transition-colors"
                     >
                         {theme === "dark" ? <Sun size={18} /> : <Moon size={18} />}
                     </button>
