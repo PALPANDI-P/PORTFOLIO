@@ -1,6 +1,7 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence, useScroll, useTransform } from "framer-motion";
+import type { Variants } from "framer-motion";
 import { ArrowRight, Github, Linkedin, Mail, Facebook, X, ChevronDown } from "lucide-react";
 
 
@@ -38,7 +39,7 @@ export const Hero = () => {
         return () => clearInterval(timer);
     }, []);
 
-    const containerVariants = {
+    const containerVariants: Variants = {
         hidden: { opacity: 0 },
         visible: {
             opacity: 1,
@@ -55,7 +56,7 @@ export const Hero = () => {
         }
     };
 
-    const itemVariants = {
+    const itemVariants: Variants = {
         hidden: { y: 30, opacity: 0, filter: "blur(10px)" },
         visible: { 
             y: 0, 

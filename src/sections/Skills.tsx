@@ -1,6 +1,5 @@
 "use client";
 
-import React from "react";
 import { motion } from "framer-motion";
 import { fadeIn, staggerContainer } from "@/animations/variants";
 import { Code2, Brain, Layout, Wrench, UserCircle, Globe } from "lucide-react";
@@ -8,37 +7,37 @@ import { Code2, Brain, Layout, Wrench, UserCircle, Globe } from "lucide-react";
 const skills = [
     {
         category: "Programming Languages",
-        icon: <Code2 size={32} />,
+        icon: Code2,
         items: ["Java", "Python", "C++", "SQL"],
         color: "from-primary/10 to-transparent",
     },
     {
         category: "Web Design",
-        icon: <Layout size={32} />,
+        icon: Layout,
         items: ["HTML", "CSS"],
         color: "from-primary/10 to-transparent",
     },
     {
         category: "Tools & Platforms",
-        icon: <Wrench size={32} />,
+        icon: Wrench,
         items: ["Visual Studio Code", "PyCharm", "Microsoft Office", "Git", "GitHub"],
         color: "from-primary/10 to-transparent",
     },
     {
         category: "Core Competencies",
-        icon: <Brain size={32} />,
+        icon: Brain,
         items: ["Time Management", "Critical Thinking", "Problem Solving", "Creative Thinking", "Innovation"],
         color: "from-primary/10 to-transparent",
     },
     {
         category: "Soft Skills",
-        icon: <UserCircle size={32} />,
+        icon: UserCircle,
         items: ["Teamwork / Community", "Fast Learning", "Adaptability"],
         color: "from-primary/10 to-transparent",
     },
     {
         category: "Languages",
-        icon: <Globe size={32} />,
+        icon: Globe,
         items: ["Tamil", "English"],
         color: "from-primary/10 to-transparent",
     },
@@ -84,7 +83,7 @@ export const Skills = () => {
                             className="p-8 rounded-[32px] bg-[var(--foreground)]/[0.02] border border-[var(--foreground)]/5 relative overflow-hidden group transition-all duration-500 hover:bg-[var(--foreground)]/[0.04]"
                         >
                             <div className="mb-8 p-4 bg-primary/5 rounded-2xl w-fit text-primary">
-                                {React.cloneElement(skill.icon as React.ReactElement, { className: "w-6 h-6" })}
+                                <skill.icon className="w-6 h-6" />
                             </div>
                             <h3 className="text-xl font-bold mb-6 tracking-tight text-[var(--foreground)]">{skill.category}</h3>
                             <div className="flex flex-wrap gap-2.5">
