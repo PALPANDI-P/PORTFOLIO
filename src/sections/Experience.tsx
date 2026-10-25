@@ -2,8 +2,8 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import { fadeIn, staggerContainer } from "@/animations/variants";
-import { Briefcase, Calendar, MapPin } from "lucide-react";
+import { fadeIn } from "@/animations/variants";
+import { Briefcase, MapPin } from "lucide-react";
 
 const experiences = [
     {

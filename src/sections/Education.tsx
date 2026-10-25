@@ -2,7 +2,7 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import { GraduationCap, MapPin, Award } from "lucide-react";
+import { GraduationCap, MapPin, Award, Calendar } from "lucide-react";
 import { fadeIn } from "@/animations/variants";
 
 const education = [
@@ -10,79 +10,89 @@ const education = [
         degree: "Master of Computer Applications (MCA)",
         institution: "Alagappa University",
         period: "Jul 2024 – Present",
-        location: "Sivaganga",
+        location: "Sivaganga, Tamil Nadu",
         score: "GPA: 7.9",
-        specialization: "Advanced Computational Methodologies",
+        focus: "Advanced Computational Methodologies, AI/ML, Data Science",
+        status: "current",
     },
     {
         degree: "Bachelor of Computer Applications (BCA)",
         institution: "Madurai Kamaraj University College",
-        period: "Jun 2021 – May 2024",
-        location: "Madurai",
-        score: "GPA: 7.6",
-        specialization: "Foundational CS & Development",
-    }
+        period: "Jun 2021 – Apr 2024",
+        location: "Madurai, Tamil Nadu",
+        score: "GPA: 7.3",
+        focus: "Foundational CS, Java, Python, C++, Development",
+        status: "completed",
+    },
 ];
 
 export const Education = () => {
     return (
-        <section id="education" className="py-32 relative overflow-hidden bg-transparent">
-            {/* Background Decoration */}
-            <div className="absolute inset-0 pointer-events-none">
-                <div className="absolute inset-0 bg-grid opacity-[0.02] dark:opacity-[0.05]" />
-            </div>
+        <section id="education" className="py-20 bg-[var(--secondary)] relative overflow-hidden">
+            <div className="absolute inset-0 bg-grid opacity-30 pointer-events-none" />
 
-            <div className="max-w-7xl mx-auto px-6 relative z-10">
+            <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
                 <motion.div
-                    variants={fadeIn("up", 0.2)}
+                    variants={fadeIn("up", 0.1)}
                     initial="hidden"
                     whileInView="show"
                     viewport={{ once: true }}
-                    className="flex flex-col mb-20"
+                    className="mb-12"
                 >
-                    <span className="text-[9px] font-bold tracking-[0.4em] uppercase text-[var(--foreground)]/40 mb-4 flex items-center gap-4">
-                        <span className="w-12 h-[1px] bg-primary/20" /> 
-                        Academic Journey
-                    </span>
-                    <h2 className="text-3xl md:text-5xl font-extrabold tracking-tighter text-[var(--foreground)] font-display">
-                        Education <span className="text-primary">Pathway</span>
+                    <div className="section-label mb-4">Academic Journey</div>
+                    <h2 className="text-3xl md:text-4xl font-display font-extrabold tracking-tight text-[var(--foreground)]">
+                        Education <span className="italic font-serif font-normal text-[var(--muted-foreground)]">pathway.</span>
                     </h2>
                 </motion.div>
 
-                <div className="space-y-6">
+                <div className="grid md:grid-cols-2 gap-5">
                     {education.map((edu, idx) => (
                         <motion.div
                             key={idx}
-                            variants={fadeIn("up", 0.2 + idx * 0.1)}
+                            variants={fadeIn("up", 0.15 + idx * 0.1)}
                             initial="hidden"
                             whileInView="show"
                             viewport={{ once: true }}
-                            className="group relative bg-[var(--foreground)]/[0.02] border border-[var(--foreground)]/5 p-8 md:p-10 rounded-[24px] hover:border-primary/20 transition-all duration-500"
+                            className="group relative bg-[var(--background)] rounded-3xl p-7 border border-[var(--border)] hover:border-[var(--accent)]/30 transition-all"
                         >
-                            <div className="flex flex-col md:flex-row md:items-start justify-between gap-6">
-                                <div className="space-y-3 flex-grow">
-                                    <div className="flex items-center gap-3 text-[var(--foreground)]/40 font-bold text-[10px] uppercase tracking-widest">
-                                        <span className="flex items-center gap-2"><GraduationCap size={12} className="text-primary" /> {edu.institution}</span>
-                                        <span className="w-1 h-1 rounded-full bg-[var(--foreground)]/10" />
-                                        <span className="flex items-center gap-2"><MapPin size={12} /> {edu.location}</span>
-                                    </div>
-                                    <h3 className="text-2xl font-bold text-[var(--foreground)] tracking-tight">{edu.degree}</h3>
-                                    
-                                    <div className="flex flex-wrap gap-6 pt-3">
-                                        <div className="flex items-center gap-2 text-[var(--foreground)]/60">
-                                            <Award size={14} className="text-primary" />
-                                            <span className="text-sm md:text-base font-bold">{edu.score}</span>
-                                        </div>
-                                        <div className="flex items-center gap-2 text-[var(--foreground)]/60">
-                                            <div className="w-1.5 h-1.5 rounded-full bg-primary/20" />
-                                            <span className="text-sm md:text-base font-medium">{edu.specialization}</span>
-                                        </div>
-                                    </div>
+                            {edu.status === "current" && (
+                                <div className="absolute top-5 right-5 flex items-center gap-1.5 px-3 py-1 bg-green-500/10 rounded-full">
+                                    <div className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse" />
+                                    <span className="text-[0.6rem] font-bold text-green-600 dark:text-green-400 uppercase tracking-wider">Current</span>
                                 </div>
-                                <div className="flex-shrink-0">
-                                    <div className="px-5 py-2 bg-[var(--foreground)] text-[var(--background)] rounded-lg font-bold text-[9px] uppercase tracking-widest">
-                                        {edu.period}
+                            )}
+
+                            <div className="flex items-start gap-4">
+                                <div className="p-3 rounded-2xl bg-[var(--foreground)]/5 text-[var(--foreground)] group-hover:bg-[var(--accent)]/10 group-hover:text-[var(--accent)] transition-colors flex-shrink-0">
+                                    <GraduationCap size={22} strokeWidth={1.5} />
+                                </div>
+                                <div className="flex-grow min-w-0">
+                                    <h3 className="text-base font-bold text-[var(--foreground)] leading-tight mb-1">
+                                        {edu.degree}
+                                    </h3>
+                                    <p className="text-sm font-semibold text-[var(--accent)] mb-3">{edu.institution}</p>
+
+                                    <div className="grid grid-cols-2 gap-2.5 mb-3">
+                                        <div className="flex items-center gap-1.5 text-xs text-[var(--muted-foreground)]">
+                                            <Calendar size={11} />
+                                            {edu.period}
+                                        </div>
+                                        <div className="flex items-center gap-1.5 text-xs text-[var(--muted-foreground)]">
+                                            <MapPin size={11} />
+                                            {edu.location}
+                                        </div>
                                     </div>
+
+                                    <div className="flex items-center gap-2 mb-3">
+                                        <div className="flex items-center gap-1.5 px-3 py-1 bg-[var(--foreground)]/6 border border-[var(--border)] rounded-full">
+                                            <Award size={11} className="text-[var(--accent)]" />
+                                            <span className="text-xs font-bold text-[var(--foreground)]">{edu.score}</span>
+                                        </div>
+                                    </div>
+
+                                    <p className="text-xs text-[var(--muted-foreground)] leading-relaxed">
+                                        {edu.focus}
+                                    </p>
                                 </div>
                             </div>
                         </motion.div>
